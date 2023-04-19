@@ -1,9 +1,8 @@
 <%- include('../partials/html-head.ejs') %>
-
+<link rel="stylesheet" href="/stylesheets/profiles/show.css" />
 <%- include('../partials/nav.ejs') %>
 
-<h1>This is the profiles show view</h1>
-<h2>The profile ID you are looking at is <%= profile.name %></h2>
+<h2><%= profile.name %>'s Profile</h2>
 <% if (user.profile.equals(profile._id)) { %>
   <h2>This is your profile!</h2>
 <% } else { %>

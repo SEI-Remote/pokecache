@@ -1,8 +1,34 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-<main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+<main id="landing-container">
+  <% if (!user) { %>
+    <img src="/images/squirtle-pikachu.gif" alt="dancing pokemon">
+    <h1>Log in to start!</h1>
+    <div 
+      id="g_id_onload"
+      data-client_id="<%= googleClientID %>"
+      data-login_uri="/auth/google"
+      data-auto_prompt="false"
+      data-prompt_parent_id="g_id_onload"
+    ></div>
+    <div 
+      class="g_id_signin"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left"
+    ></div>
+  <% } else { %>
+    <h1>Start with a search to cache em all!</h1>
+    <form action="/pokemon/search" method="GET">
+      <input type="text" name="pokeName">
+      <button type="submit">Search</button>
+    </form>
+    <img src="/images/bouncin.gif" alt="bouncing pokeballs">
+  <% } %>
 </main>
 
 <%- include('./partials/footer') %>

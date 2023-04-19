@@ -22,6 +22,7 @@ body {
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
   margin: 0;
+  height: 100vh;
 }
 
 nav {
@@ -42,13 +43,14 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 80%;
 }
 
 .right {
   margin-left: auto;
 }
 
-nav > img {
+#app-logo {
   width: 5vh;
 }
 
@@ -81,4 +83,15 @@ nav > a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#error-img {
+  width: 40vh;
+}
+
+#landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
