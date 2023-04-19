@@ -34,7 +34,7 @@ nav {
   /* font-family: 'Londrina Solid', cursive; */
   font-family: 'Luckiest Guy', cursive;
   /* font-family: 'Press Start 2P', cursive; */
-  font-size: 2vh;
+  font-size: 2.5vh;
 }
 
 main {
@@ -71,7 +71,7 @@ nav > a {
 }
 
 #logout-btn {
-  font-size: 2vh;
+  font-size: 2.5vh;
   font-family: 'Luckiest Guy', cursive;
   border: none;
   background-color: #f6f6f6;
