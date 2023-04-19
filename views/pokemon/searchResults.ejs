@@ -1,0 +1,34 @@
+<%- include('../partials/html-head.ejs') %>
+
+<%- include('../partials/nav.ejs') %>
+
+<h1>This is the pokemon search results page</h1>
+<div class="poke-card">
+  <div class="card-header">
+    <h1><%= pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1) %></h1>
+    <img src="<%= pokeData.sprites.front_default %>" height="200px"  alt="A pokemon">
+
+  </div>
+  <div class="card-body">
+    <div class="type">
+      <h4>Types:
+        <% pokeData.types.forEach(type => { %>
+          <p><%= type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1) %></p>
+        <% }) %>
+      </h4>
+    </div>
+    <div class="stats">
+      <% pokeData.stats.forEach(stat => { %>
+        <p>
+          <%= stat.stat.name %>: <%= stat.base_stat %>
+        </p>
+      <% }) %>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="add-btn">Add</button>
+    <button class="remove-btn">Remove</button>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

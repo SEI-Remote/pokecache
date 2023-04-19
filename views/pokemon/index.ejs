@@ -1,0 +1,12 @@
+<%- include('../partials/html-head.ejs') %>
+
+<%- include('../partials/nav.ejs') %>
+
+<h1>This is the pokemon index view</h1>
+
+<form action="/pokemon/search" method="GET">
+  <input type="text" name="pokeName">
+  <button type="submit">Cache em All</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>

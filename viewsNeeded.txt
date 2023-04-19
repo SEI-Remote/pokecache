@@ -1,0 +1,14 @@
+AUTH related:
+Login
+Sign up
+View account details
+Edit account details
+
+POKEMON related:
+Pokemon search
+Pokemon show
+
+PROFILE related:
+Profile index
+Profile details - user vs friend vs not-friend
+

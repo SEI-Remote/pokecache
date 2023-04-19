@@ -1,0 +1,26 @@
+AAU - I can sign up for the app
+AAU - I can log into the app
+AAU - I can browse a list of all Pokemon (from API search)
+AAU - I can search for a specific Pokemon
+AAU - I can see the details for a specific Pokemon
+AAU - I can add a Pokemon to my collection
+AAU - I can change my avatar to any image I choose (or select a Pokemon image)
+AAU - I can add another user as a friend
+AAU - I should be able to see a list of all users
+AAU - I should be able to see a list of my favorite Pokemon (6 max)
+AAU - I should be able to see a list of my friends' favorite Pokemon (but not unless they are my friend)
+AAU - I should be able to see my friends' friend counts
+AAU - I should be able to see info for my friends (detail view)
+AAU - I should be able to see stats/evolution info for my Pokemon
+
+
+AAU - I should be able to sort Pokemon by:
+  - Type
+  - Name
+  - Number
+  - Level / Stats
+  - Move 
+AAU - I should be able to see a list of popular (count of total) Pokemon collected by other users (stretch)
+AAU - I should be able to search a list of user (stretch)
+
+
