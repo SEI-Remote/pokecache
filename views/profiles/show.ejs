@@ -5,12 +5,12 @@
 <h2><%= profile.name %>'s Profile</h2>
 <% if (user.profile.equals(profile._id)) { %>
   <h2>This is your profile!</h2>
+  <form action="/pokemon/search" method="GET">
+    <input type="text" name="pokeName">
+    <button type="submit">Cache em All</button>
+  </form>
 <% } else { %>
   <h2>This is not your profile!</h2>
 <% } %>
-<form action="/pokemon/search" method="GET">
-  <input type="text" name="pokeName">
-  <button type="submit">Cache em All</button>
-</form>
 
 <%- include('../partials/footer.ejs') %>
