@@ -72,7 +72,7 @@ nav > a {
   margin: auto;
 }
 
-#logout-btn {
+#logout-btn, button {
   font-size: 2.5vh;
   font-family: 'Luckiest Guy', cursive;
   border: none;
@@ -99,3 +99,4 @@ nav > a {
 #search-form {
   margin-bottom: 30px;
 }
+
