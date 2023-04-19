@@ -7,20 +7,22 @@
     <img src="/images/pokecacheball.png" alt="poke-ball">
     <div id="nav-title">PokéCache</div>
     <% if (user) { %>
-      <a href="/profiles">Profile List</a><br>
-      <a href="/pokemon">Pokemon Index</a><br>
-      <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
-      </a>
-      <% if (user?.profile.avatar) { %>
-        <div>
-          <img
-            id="nav-avatar"
-            src="<%= user.profile.avatar %>"
-            alt="<%= user.profile.name %> avatar"
-          />
-        </div>
-      <% } %>
+      <a href="/profiles">Users</a>
+      <a href="/profiles/<%= user.profile._id %>">My Collection</a>
+      <div id="avatar-container" class="right">
+        <a href="/auth/logout">
+          <button id="logout-btn" type="submit">Log Out</button>
+        </a>
+        <% if (user?.profile.avatar) { %>
+          <div>
+            <img
+              id="nav-avatar"
+              src="<%= user.profile.avatar %>"
+              alt="<%= user.profile.name %> avatar"
+            />
+          </div>
+        <% } %>
+      </div>
     <% } else { %>
       <div 
         id="g_id_onload"

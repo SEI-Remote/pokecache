@@ -34,7 +34,7 @@ nav {
   /* font-family: 'Londrina Solid', cursive; */
   font-family: 'Luckiest Guy', cursive;
   /* font-family: 'Press Start 2P', cursive; */
-  font-size: 3vh;
+  font-size: 2vh;
 }
 
 main {
@@ -55,11 +55,30 @@ nav > img {
 #nav-avatar {
   border-radius: 50%;
   width: 5vh;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 #nav-title {
   margin-left: 20px;
   margin-right: auto;
   font-size: 4vh;
+}
+
+nav > a {
+  text-decoration: none;
+  color: black;
+  margin: auto;
+}
+
+#logout-btn {
+  font-size: 2vh;
+  font-family: 'Luckiest Guy', cursive;
+  border: none;
+  background-color: #f6f6f6;
+}
+
+#avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

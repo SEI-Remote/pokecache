@@ -3,6 +3,15 @@
 <%- include('../partials/nav.ejs') %>
 
 <h1>This is the profiles show view</h1>
-<h2>The profile ID you are looking at is <%= profileId %></h2>
+<h2>The profile ID you are looking at is <%= profile.name %></h2>
+<% if (user.profile.equals(profile._id)) { %>
+  <h2>This is your profile!</h2>
+<% } else { %>
+  <h2>This is not your profile!</h2>
+<% } %>
+<form action="/pokemon/search" method="GET">
+  <input type="text" name="pokeName">
+  <button type="submit">Cache em All</button>
+</form>
 
 <%- include('../partials/footer.ejs') %>
