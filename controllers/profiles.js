@@ -1,7 +1,12 @@
 import { Profile } from "../models/profile.js"
 
 function index(req, res) {
-  res.render('profiles/index')
+  Profile.find({})
+  .then(profiles => {
+    res.render('profiles/index', {
+      profiles
+    })
+  })
 }
 
 function show(req, res) {

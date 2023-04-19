@@ -2,6 +2,15 @@
 <link rel="stylesheet" href="/stylesheets/profiles/index.css" />
 <%- include('../partials/nav.ejs') %>
 
-<h1>This is the profiles index view</h1>
+<h1>Trainer List</h1>
+<div id="card-container">
+  <% profiles.forEach(profile => { %>
+    <div id="profile-card">
+      <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s photo">
+      <h4><%= profile.name %></h4>
+      <button>Button</button>
+    </div>
+  <% }) %>
+</div>
 
 <%- include('../partials/footer.ejs') %>
