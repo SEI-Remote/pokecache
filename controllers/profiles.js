@@ -50,23 +50,32 @@ function acceptFriend(req, res) {
   .then(userProfile => {
     console.log(userProfile)
     // remove the friend _id from pending incoming
-    userProfile.pendingIncomingInvites.remove(req.params.friendId)
+    userProfile.pendingIncomingInvites.remove(req.params.profileId)
     // add friend _id to friends list
-    userProfile.friends.push(req.params.friendId)
+    userProfile.friends.push(req.params.profileId)
     userProfile.save()
     .then(() => {
       // find the friend profile
       Profile.findById(req.params.profileId)
       .then(friendProfile => {
         // remove the logged in user's profile _id from pending outgoing
-        friendProfile.pendingOutgoingInvites.remove(req.user.profile)
+        friendProfile.pendingOutgoingInvites.remove({_id: req.user.profile._id})
         // add to friends
         friendProfile.friends.push(req.user.profile)
         friendProfile.save()
         .then(() => {
           res.redirect('/profiles')
         })
+        .catch(err => {
+          console.log(err)
+        })
       })
+      .catch(err => {
+        console.log(err)
+      })
+    })
+    .catch(err => {
+      console.log(err)
     })
   })
 }
