@@ -5,7 +5,7 @@
 <h1>Trainer List</h1>
 <div id="card-container">
   <% profiles.forEach(profile => { %>
-    <div id="profile-card">
+    <div class="<%= userProfile.friends.includes(profile._id) ? 'profile-card friend' : 'profile-card' %>">
       <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s photo">
       <h4><%= profile.name %></h4>
       
