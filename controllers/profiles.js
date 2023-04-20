@@ -116,7 +116,41 @@ function acceptFriend(req, res) {
 }
 
 function removeFriend(req, res) {
-  
+  // find the logged in user's profile
+  Profile.findById(req.user.profile)
+  .then(userProfile => {
+    // remove the friend _id from the friends array
+    userProfile.friends.remove(req.params.profileId)
+    userProfile.save()
+    .then(() => {
+      // find the friend profile
+        // remove the logged in user's _id from friends array
+      Profile.findById(req.params.profileId)
+      .then(friendProfile => {
+        friendProfile.friends.remove(req.user.profile)
+        friendProfile.save()
+        .then(() => {
+          res.redirect('/profiles')
+        })
+        .catch(err => {
+          console.log(err)
+          res.redirect('/profiles')
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/profiles')
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/profiles')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
 }
 
 export {
