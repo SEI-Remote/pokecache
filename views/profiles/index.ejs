@@ -8,7 +8,25 @@
     <div id="profile-card">
       <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s photo">
       <h4><%= profile.name %></h4>
-      <button>Button</button>
+      
+      <% if (userProfile.equals(profile._id)) { %>
+      <% } else { %>
+        <% if (userProfile.pendingOutgoingInvites.includes(profile._id)) { %>
+          <button>Pending</button>
+        <% } else if (userProfile.pendingIncomingInvites.includes(profile._id)) { %>
+          <form action="/profiles/acceptFriend/<%= profile._id %>?_method=PATCH" method="POST">
+            <button type="submit">Accept Invite</button>
+          </form>
+        <% } else if (userProfile.friends.includes(profile._id)) { %>
+          <form action="/profiles/removeFriend/<%= profile._id %>?_method=DELETE" method="POST">
+            <button type="submit">Accept Invite</button>
+          </form>
+        <% } else { %>
+          <form action="/profiles/requestFriend/<%= profile._id %>" method="POST">
+            <button type="submit">Send Request</button>
+          </form>
+        <% } %>
+      <% } %>
     </div>
   <% }) %>
 </div>
