@@ -10,6 +10,14 @@ function index(req, res) {
         userProfile
       })
     })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/profiles')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
   })
 }
 
@@ -19,6 +27,10 @@ function show(req, res) {
     res.render('profiles/show', {
       profile
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
   })
 }
 
@@ -39,8 +51,24 @@ function requestFriend(req, res) {
         .then(() => {
           res.redirect('/profiles')
         })
+        .catch(err => {
+          console.log(err)
+          res.redirect('/profiles')
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/profiles')
       })
     })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/profiles')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
   })
 }
 
@@ -68,15 +96,22 @@ function acceptFriend(req, res) {
         })
         .catch(err => {
           console.log(err)
+          res.redirect('/profiles')
         })
       })
       .catch(err => {
         console.log(err)
+        res.redirect('/profiles')
       })
     })
     .catch(err => {
       console.log(err)
+      res.redirect('/profiles')
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
   })
 }
 
