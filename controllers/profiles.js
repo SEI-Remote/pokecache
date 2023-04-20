@@ -5,7 +5,6 @@ function index(req, res) {
   .then(profiles => {
     Profile.findById(req.user.profile)
     .then(userProfile => {
-      console.log(userProfile)
       res.render('profiles/index', {
         profiles,
         userProfile
@@ -46,11 +45,34 @@ function requestFriend(req, res) {
 }
 
 function acceptFriend(req, res) {
-
+  // find the logged in user's profile
+  Profile.findById(req.user.profile)
+  .then(userProfile => {
+    console.log(userProfile)
+    // remove the friend _id from pending incoming
+    userProfile.pendingIncomingInvites.remove(req.params.friendId)
+    // add friend _id to friends list
+    userProfile.friends.push(req.params.friendId)
+    userProfile.save()
+    .then(() => {
+      // find the friend profile
+      Profile.findById(req.params.profileId)
+      .then(friendProfile => {
+        // remove the logged in user's profile _id from pending outgoing
+        friendProfile.pendingOutgoingInvites.remove(req.user.profile)
+        // add to friends
+        friendProfile.friends.push(req.user.profile)
+        friendProfile.save()
+        .then(() => {
+          res.redirect('/profiles')
+        })
+      })
+    })
+  })
 }
 
 function removeFriend(req, res) {
-
+  
 }
 
 export {

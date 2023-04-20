@@ -19,7 +19,7 @@
           </form>
         <% } else if (userProfile.friends.includes(profile._id)) { %>
           <form action="/profiles/removeFriend/<%= profile._id %>?_method=DELETE" method="POST">
-            <button type="submit">Accept Invite</button>
+            <button type="submit">Remove Friend</button>
           </form>
         <% } else { %>
           <form action="/profiles/requestFriend/<%= profile._id %>" method="POST">
